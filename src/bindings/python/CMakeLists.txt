@@ -50,7 +50,7 @@ link_libraries(${PYTHON_LDFLAGS})
 # Add swig module
 swig_add_module(pyFosdk python ../fosdk.py.i)
 swig_link_libraries(pyFosdk gwc cdr utils logger ${PYTHON_LIBRARIES})
-set_target_properties(_pyFosdk PROPERTIES OUTPUT_NAME "_Fosdk")
+set_target_properties(${SWIG_MODULE_pyFosdk_REAL_NAME} PROPERTIES OUTPUT_NAME "_Fosdk")
 
 # Files to install with Python
 set(PYTHON_INSTALL_FILES
@@ -60,7 +60,7 @@ set(PYTHON_INSTALL_FILES
   ${CMAKE_CURRENT_BINARY_DIR}/Fosdk.py)
 
 # Declare install target for python
-install(TARGETS _pyFosdk
+install(TARGETS ${SWIG_MODULE_pyFosdk_REAL_NAME}
   DESTINATION lib/python)
 install(FILES ${PYTHON_INSTALL_FILES}
   DESTINATION lib/python)
